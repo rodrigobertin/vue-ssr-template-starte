@@ -1,5 +1,5 @@
 import { createSSRApp, createApp as createClientApp } from 'vue';
-import { App as VueApp } from '@vue/runtime-core';
+import type { App as VueApp } from '@vue/runtime-core';
 import App from './App.vue';
 import { createPinia } from 'pinia';
 import { createRouter } from './router';
