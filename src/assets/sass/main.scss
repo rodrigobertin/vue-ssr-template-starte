@@ -1,0 +1,17 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'reset';
+
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  color: $text-color;
+}
+
+// Utility classes
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+}
