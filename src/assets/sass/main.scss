@@ -1,3 +1,8 @@
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+@use 'tailwindcss/utilities';
+
+
 @use 'variables' as *;
 @use 'mixins' as *;
 @use 'reset';
@@ -10,8 +15,6 @@ body {
 
 // Utility classes
 .container {
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 $spacing-unit;
 }
