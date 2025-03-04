@@ -1,6 +1,6 @@
 // @ts-check
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 const express = require('express');
 
 async function createServer(
@@ -53,7 +53,8 @@ async function createServer(
     try {
       const url = req.originalUrl;
 
-      let template, render;
+      let template;
+      let render;
       if (!isProd) {
         // always read fresh template in dev
         template = fs.readFileSync(resolve('index.html'), 'utf-8');
@@ -71,11 +72,12 @@ async function createServer(
       )}</script>`;
 
       const html = template
-        .replace(`<!-- head-end -->`, `${renderState}`)
-        .replace(`<!--app-html-->`, appHtml);
+        .replace("<!-- head-end -->", `${renderState}`)
+        .replace("<!--app-html-->", appHtml);
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
     } catch (e) {
+      // biome-ignore lint/complexity/useOptionalChain: <explanation>
       vite && vite.ssrFixStacktrace(e);
       console.info('app error', e);
       res.status(500).end(e.stack || e);
@@ -88,6 +90,6 @@ async function createServer(
 createServer().then(({ app }) => {
   const port = process.env.PORT || 8080;
   app.listen(port, () => {
-    console.info(`App run on http://localhost:${port} Cheer!`);
+    console.info(`App run on http://localhost:${port}!!!`);
   });
 });
