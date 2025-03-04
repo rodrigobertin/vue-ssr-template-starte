@@ -2,7 +2,7 @@
 
 <template>
   <div class="container">
-    <h1>Hello to Vue 3!!</h1>
+    <h1>Hello to Vue 3 (SSR)</h1>
     <router-view></router-view>
   </div>
 </template>
