@@ -15,7 +15,7 @@ async function createServer(
 
   const manifest = isProd
     ? // @ts-ignore
-      require('./dist/client/ssr-manifest.json')
+      require('./dist/client/manifest.json')
     : {};
 
   const app = express();
@@ -62,7 +62,7 @@ async function createServer(
         render = (await vite.ssrLoadModule('/src/entry-server.ts')).render;
       } else {
         template = indexProd;
-        render = require('./dist/server/entry-server.js').render;
+        render = require('./dist/server/entry-server.mjs').render;
       }
 
       const [appHtml, initialState] = await render(url);
