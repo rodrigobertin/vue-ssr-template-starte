@@ -13,9 +13,10 @@ async function createServer(
     ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
     : '';
 
+  //@ts-ignore
   const manifest = isProd
     ? // @ts-ignore
-      require('./dist/client/manifest.json')
+      require('./dist/client/.vite/manifest.json')
     : {};
 
   const app = express();
