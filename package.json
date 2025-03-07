@@ -19,7 +19,6 @@
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
     "@vitejs/plugin-vue": "^3.2.0",
     "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.3",
