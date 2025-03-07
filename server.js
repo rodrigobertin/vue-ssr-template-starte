@@ -62,7 +62,8 @@ async function createServer(
         render = (await vite.ssrLoadModule('/src/entry-server.ts')).render;
       } else {
         template = indexProd;
-        render = require('./dist/server/entry-server.mjs').render;
+        const { render: renderFn } = await import('./dist/server/entry-server.mjs');
+        render = renderFn;
       }
 
       const [appHtml, initialState] = await render(url);
@@ -84,6 +85,7 @@ async function createServer(
     }
   });
 
+  // @ts-ignore
   return { app, vite };
 }
 
